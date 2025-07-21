@@ -38,7 +38,7 @@ public interface ReadOnlyBook {
     int getPublicationYear();
     String getPublisher();
 }
-
+```
 ###  `Book.java`
 
 This class implements the ReadOnlyBook interface and includes additional setters for editing book data. I used encapsulation to protect the internal state and added validation inside the setters to ensure the integrity of the data.
