@@ -1,4 +1,4 @@
-# 🏦 Duckburg Bank Mortgage Calculator (Java CLI Prototype)
+# Duckburg Bank Mortgage Calculator 
 
 This is a command-line prototype of a **mortgage installment calculator** for Duckburg Bank. It calculates the **monthly installment** based on the **loan principal** and **loan term** in months, using a simplified formula.
 
