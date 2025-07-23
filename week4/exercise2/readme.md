@@ -47,4 +47,17 @@ For more advanced sorting, I counted the number of unique words using a `Set<Str
 ```java
 bookList.sort(Comparator.comparingInt(Book::getUniqueWordCount).reversed());
 
+## E) Combined Order – Name First, Then Line Count
+
+For the final sorting requirement, I implemented a **combined comparator**. The primary order is **alphabetical by name** (natural order), and the secondary order is **by line count in ascending order** if two books have the same title.
+
+I used the following comparator:
+
+```java
+bookList.sort(
+    Comparator.comparing(Book::getName)
+              .thenComparing(Book::getLineCount)
+);
+
+
 
