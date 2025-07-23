@@ -25,28 +25,28 @@ public Book(Path file) throws IOException {
         uniqueWords.addAll(Arrays.asList(words));
     }
 }
-
+```
 ## B) Natural Order – Alphabetical by Book Name
 
 I used the `Comparable` interface to implement the natural ordering of books alphabetically by their name (title). Then I sorted the list like this:
 
 ```java
 Collections.sort(bookList); // Uses compareTo()
-
+```
 ## C) Order by Line Count – Ascending
 
 To sort books by the number of lines (from smallest to largest), I used a comparator:
 
 ```java
 bookList.sort(Comparator.comparingInt(Book::getLineCount));
-
+```
 ## D) Order by Unique Word Count – Descending
 
 For more advanced sorting, I counted the number of unique words using a `Set<String>`. To sort in descending order (largest vocabulary first), I used:
 
 ```java
 bookList.sort(Comparator.comparingInt(Book::getUniqueWordCount).reversed());
-
+```
 ## E) Combined Order – Name First, Then Line Count
 
 For the final sorting requirement, I implemented a **combined comparator**. The primary order is **alphabetical by name** (natural order), and the secondary order is **by line count in ascending order** if two books have the same title.
@@ -58,6 +58,6 @@ bookList.sort(
     Comparator.comparing(Book::getName)
               .thenComparing(Book::getLineCount)
 );
-
+```
 
 
