@@ -44,7 +44,7 @@
 
 ---
 
-## 🔹 d.) Why `protected abstract static class Handler`, and how is `static` appropriate?
+## d.) Why `protected abstract static class Handler`, and how is `static` appropriate?
 
 | Keyword     | Reason                                                                 |
 |-------------|------------------------------------------------------------------------|
