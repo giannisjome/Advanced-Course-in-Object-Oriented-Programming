@@ -1,36 +1,34 @@
-# Exercise 3 
+# Exercise 3 – Java Generics, Interfaces, and Type Safety
 
-This project demonstrates the use of interfaces, abstract classes, and generics with multiple bounds in Java through the classes `Winged`, `Bipedal`, `Bird`, and `Crow`. The file `Exercise3.java` showcases two methods, `challenge1` and `challenge2`, which at first glance appear to perform the same functionality — invoking `fly()` and `walk()` — but differ significantly in their design and implications.
+This project is part of an exercise where I worked with Java interfaces, abstract classes, and generics using multiple bounds. The implementation includes the interfaces `Winged` and `Bipedal`, the abstract class `Bird`, and the concrete class `Crow`. The `Exercise3.java` file demonstrates two methods, `challenge1` and `challenge2`, which at first seem to behave identically — but differ significantly in design.
 
 ---
 
-## Key Concepts
-
 ### a) Language Feature: Java Generics with Multiple Interface Bounds
 
-The method `challenge2` uses **Java generics** with multiple interface bounds: `<X extends Winged & Bipedal>`. This enforces that the input object must implement both interfaces, `Winged` and `Bipedal`.
+In the method `challenge2`, I used **Java generics** with multiple interface bounds: `<X extends Winged & Bipedal>`. This feature ensures that any object passed to the method implements **both** `Winged` and `Bipedal`.
 
-- `challenge1(Bird b)` relies on the class hierarchy — it accepts any subclass of `Bird`, regardless of whether it strictly implements both interfaces.
-- `challenge2(X b)` ensures at **compile time** that the argument has both required behaviors (`fly()` and `walk()`), increasing **type safety** and **flexibility**.
+- `challenge1(Bird b)` accepts any `Bird`, even if it doesn't explicitly guarantee both behaviors.
+- `challenge2(X b)` provides stronger **compile-time safety** by requiring the passed object to implement **both interfaces explicitly**.
 
 ---
 
 ### b) Functional Differences Between `challenge1` and `challenge2`
 
-Despite similar runtime behavior, these methods differ in:
+Although both methods produce the same output, they differ in functionality and design principles:
 
-| Aspect                | `challenge1`                     | `challenge2`                                      |
-|-----------------------|----------------------------------|--------------------------------------------------|
-| Parameter Type        | Accepts `Bird`                   | Accepts any type implementing `Winged & Bipedal` |
-| Type Safety           | Weaker (relies on `Bird`)        | Stronger (interface-based constraints)           |
-| Flexibility           | Tightly coupled to `Bird` class  | Decoupled, supports any valid combination        |
-| Interface Dependency  | Implicit                         | Explicit and enforced                            |
+| Feature               | `challenge1`                      | `challenge2`                                        |
+|-----------------------|-----------------------------------|-----------------------------------------------------|
+| Parameter Type        | Accepts only `Bird`               | Accepts any type implementing `Winged & Bipedal`    |
+| Type Safety           | Weaker                            | Stronger, enforced at compile time                  |
+| Flexibility           | Tied to class hierarchy           | Works with any class that satisfies interface bounds|
+| Scalability           | Limited to `Bird` and subclasses  | More open to future expansion                       |
 
 ---
 
-### c) Demonstration of `challenge2`'s Advantages
+### c) My Example to Show Why `challenge2` is Better
 
-To demonstrate the benefits of the `challenge2` method, we implemented a **Vehicle Fleet** scenario:
+To show the benefit of using `challenge2`, I created a **vehicle fleet system** where some objects can both fly and walk:
 
 ```java
 interface Winged { void fly(); }
