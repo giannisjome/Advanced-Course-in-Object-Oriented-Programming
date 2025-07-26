@@ -53,7 +53,7 @@ Card card = new Card("Fireball", 4, "Spell", 6);
 System.out.println("Card Name: " + card.getTitle());
 ```
 
-### **Admin
+### **Admin**
 ```java
 Card card = new Card("Fireball", 4, "Spell", 6);
 card.editCard("Flame Burst", 5, "Spell", 7, true);
