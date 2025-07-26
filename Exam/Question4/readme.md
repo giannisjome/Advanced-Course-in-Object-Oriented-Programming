@@ -62,7 +62,7 @@ public final class Stats {
     private final int attack;
     private final int defense;
     private final int speed;
-    // Optional: mana, critChance, accuracy, dodge, etc.
+    
 }
 ```
 # Combatant
